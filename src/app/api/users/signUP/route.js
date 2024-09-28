@@ -10,7 +10,7 @@ export async function POST(req) {
     const reqBody = await req.json();
     const { username, email, password } = reqBody;
     // Check if the user already exists
-    const user = await User.findOne({ email: reqBody.email });
+    const user = await User.findOne({ email });
     if (user) {
       return NextResponse.json(
         { error: "User already exists" },
@@ -29,6 +29,6 @@ export async function POST(req) {
       success: true,
     });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

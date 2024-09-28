@@ -75,6 +75,15 @@ const LogIn = () => {
               placeholder="Enter your password"
               required
             />
+            {/* Forgot password link */}
+            <p>
+              <Link
+                className="text-blue-500 text-sm hover:text-blue-700"
+                href="/forgotPage"
+              >
+                Forgot your password?
+              </Link>
+            </p>
           </div>
 
           <button
